@@ -78,10 +78,6 @@ namespace ReadmeSystem.Editor
                 Selection.objects = new UnityEngine.Object[] { result };
 
             }
-            else
-            {
-                Debug.LogWarning("Couldn't find a readme");
-            }
 
             return result;
 
@@ -273,13 +269,13 @@ namespace ReadmeSystem.Editor
 
             foreach (string guid in ids)
             {
-                var readmeObject = AssetDatabase.LoadMainAssetAtPath(AssetDatabase.GUIDToAssetPath(guid));
-
-                Readme readme = (Readme)readmeObject;
-                if (readme.isRoot)
+                Object readmeObject = AssetDatabase.LoadMainAssetAtPath(AssetDatabase.GUIDToAssetPath(guid));
+                if (readmeObject is Readme readme)
                 {
-                    results.Add(readme);
-
+                    if(readme.isRoot)
+                    {
+                        results.Add(readme);
+                    }
                 }
             }
 
