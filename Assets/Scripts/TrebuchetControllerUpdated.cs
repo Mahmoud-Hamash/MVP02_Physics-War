@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Oculus.Interaction;
 using UnityEngine;
 using TMPro;
+using Unity.VisualScripting;
 
 public class TrebuchetControllerUpdated : MonoBehaviour
 {
@@ -16,6 +19,8 @@ public class TrebuchetControllerUpdated : MonoBehaviour
     public TextMeshProUGUI forceText;
 
     public GameObject objectToActivate; // Object to activate when pumpkin is released
+    public SnapInteractable snapInteractable;
+    public Rigidbody slingArmRb;
 
     private TrailRenderer trail;
     private Rigidbody pumpkinRb;
@@ -39,10 +44,45 @@ public class TrebuchetControllerUpdated : MonoBehaviour
 
         pumpkinRb = pumpkin.GetComponent<Rigidbody>();
 
-        if (objectToActivate != null)
-        {
-            objectToActivate.SetActive(false); // Ensure it's initially inactive
-        }
+        // if (objectToActivate != null)
+        // {
+        //     objectToActivate.SetActive(false); // Ensure it's initially inactive
+        // }
+        //
+        // if (snapInteractable != null)
+        // {
+        //     snapInteractable.WhenSelectingInteractorViewAdded += OnProjectileAdded;
+        //     snapInteractable.WhenSelectingInteractorViewRemoved += OnProjectileRemoved;
+        // }
+    }
+
+    private void OnProjectileAdded(IInteractorView obj)
+    {
+        // snapInteractable.Disable();
+        // Debug.Log("Projectile Added");
+        //
+        // GameObject snappedProjectile = snapInteractable.SelectingInteractors.First().GetComponentInParent<Rigidbody>().gameObject;
+        // pumpkin = snappedProjectile;
+        // pumpkinRb = pumpkin.GetComponent<Rigidbody>();
+        //
+        // HingeJoint hingeToCreate = pumpkin.GetComponent<HingeJoint>();
+        // if (hingeToCreate == null)
+        // {
+        //     hingeToCreate = pumpkin.AddComponent<HingeJoint>();
+        // }
+        // hingeToCreate.connectedBody = slingArmRb;
+    }
+    
+    private void OnProjectileRemoved(IInteractorView obj)
+    {
+        // Debug.Log("Projectile Removed");
+        //
+        // GameObject snappedProjectile = snapInteractable.SelectingInteractors.First().GameObject();
+        // HingeJoint hingeToDestroy = snappedProjectile.GetComponent<HingeJoint>();
+        // if (hingeToDestroy != null)
+        // {
+        //     Destroy(hingeToDestroy);
+        // }
     }
 
     void Update()
@@ -70,7 +110,7 @@ public class TrebuchetControllerUpdated : MonoBehaviour
         lastVelocity = pumpkinRb.velocity;
     }
 
-    void FireTrebuchet()
+    public void FireTrebuchet()
     {
         // Release the counterweight immediately
         weight.isKinematic = false;

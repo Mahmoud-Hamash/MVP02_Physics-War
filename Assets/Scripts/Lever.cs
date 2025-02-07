@@ -5,6 +5,7 @@ using UnityEngine;
 public class Lever : MonoBehaviour
 {
     [SerializeField] private GameObject handle;
+    [SerializeField] private TrebuchetControllerUpdated trebuchet;
     
     // Start is called before the first frame update
     void Start()
@@ -23,6 +24,7 @@ public class Lever : MonoBehaviour
         Debug.Log("OMG SELECTED OMG");
         handle.transform.rotation = Quaternion.Euler(handle.transform.rotation.eulerAngles.x, 
             handle.transform.rotation.eulerAngles.y, 45f);
-
+        
+        trebuchet.FireTrebuchet();
     }
 }
