@@ -38,8 +38,8 @@ namespace ReadmeSystem.Editor
                 return;
             }
 
-            ReadmeEditor.DrawHeaderGUI(behaviour.readme);
-            ReadmeEditor.DrawInspectorGUI(behaviour.readme);
+            //ReadmeEditor.DrawHeaderGUI(behaviour.readme);
+            //ReadmeEditor.DrawInspectorGUI(behaviour.readme);
 
             GUILayout.BeginVertical(EditorStyles.helpBox);
             changeReadme = EditorGUILayout.Toggle("Change Readme File", changeReadme);
