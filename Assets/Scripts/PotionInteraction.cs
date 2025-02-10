@@ -10,12 +10,13 @@ public class PotionInteraction : MonoBehaviour
         // Ensure the formula is hidden at start
         if (formulaCanvas != null)
         {
-            formulaCanvas.SetActive(false);
+            //formulaCanvas.SetActive(false);
         }
     }
 
     public void OnSelectEntered()
     {
+        Debug.Log("Potion Interaction OnSelectEntered");
         // Toggle formula visibility when touched or grabbed
         isFormulaVisible = !isFormulaVisible;
         if (formulaCanvas != null)
