@@ -76,8 +76,10 @@ public class TrebuchetControllerUpdated : MonoBehaviour
 
     public void FireTrebuchet()
     {
-        if (pumpkin.activeSelf) // Ready to fire
+        if (pumpkin != null && pumpkin.activeSelf) // Ready to fire
         {
+            UpdateReleaseDelay();
+            
             // Release the counterweight immediately
             weight.isKinematic = false;
     
@@ -89,6 +91,22 @@ public class TrebuchetControllerUpdated : MonoBehaviour
             Debug.Log("Firing attempt failed. Need to load projectile.");
         }
         
+    }
+
+    private void UpdateReleaseDelay()
+    {
+        switch (pumpkin.GetComponent<Projectile>().GetMassCategory())
+        {
+            case Projectile.MassCategory.Light:
+                releaseDelay = 0.5f;
+                break;
+            case Projectile.MassCategory.Average:
+                releaseDelay = 0.7f;
+                break;
+            case Projectile.MassCategory.Heavy:
+                releaseDelay = 0.9f;
+                break;
+        }
     }
 
     IEnumerator ReleasePumpkin()

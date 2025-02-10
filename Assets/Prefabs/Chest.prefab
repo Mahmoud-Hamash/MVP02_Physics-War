@@ -1963,6 +1963,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Projectile (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 4439591988193076402, guid: 93ba80216896a094ca4a913085048862,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4439591988193076402, guid: 93ba80216896a094ca4a913085048862,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

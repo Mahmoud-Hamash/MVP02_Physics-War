@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    private enum MassCategory
+    public enum MassCategory
     {
         Light,
         Average,
@@ -18,6 +18,22 @@ public class Projectile : MonoBehaviour
     
     // Start is called before the first frame update
     void Start()
+    {
+        UpdateMass();
+    }
+
+    public void SetMassCategory(MassCategory newMassCategory)
+    {
+        massCategory = newMassCategory;
+        UpdateMass();
+    }
+
+    public MassCategory GetMassCategory()
+    {
+        return massCategory;
+    }
+
+    private void UpdateMass()
     {
         switch (massCategory)
         {
@@ -32,11 +48,5 @@ public class Projectile : MonoBehaviour
                 break;
         }
         textMass.text = $"{rb.mass}\nkg";
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
