@@ -57,10 +57,10 @@ public class TrebuchetControllerUpdated : MonoBehaviour
         }
         
         // Debug with "Space"
-        // if (Input.GetKeyDown(KeyCode.Space))
-        // {
-        //     FireTrebuchet();
-        // }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            FireTrebuchet();
+        }
     }
 
     void FixedUpdate()
