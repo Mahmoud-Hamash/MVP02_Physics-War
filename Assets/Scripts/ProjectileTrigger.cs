@@ -16,7 +16,7 @@ public class ProjectileTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_projectileIn && projectile != null)
+        if (_projectileIn && projectile != null && !projectile.activeSelf)
         {
             if (_currentProjectile.GetComponentInChildren<HandGrabInteractable>().SelectingInteractors.Count == 0)    // released
             {

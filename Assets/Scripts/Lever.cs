@@ -36,6 +36,7 @@ public class Lever : MonoBehaviour
             {
                 _isOff = true;  // Toggle before rotation starts
                 StartCoroutine(RotateLever(-45f));
+                ResetTrebuchet();
             }
         }
     }
@@ -43,6 +44,13 @@ public class Lever : MonoBehaviour
     private void ResetTrebuchet()
     {
         var trebuchetTransform = trebuchet.transform;
+        
+        // Destroy all children first
+        foreach (Transform child in trebuchetTransform)
+        {
+            Destroy(child.gameObject);
+        }
+        
         Destroy(trebuchet.gameObject);
         
         // Instantiate a new trebuchet at the same position & rotation
@@ -67,10 +75,5 @@ public class Lever : MonoBehaviour
 
         handle.transform.rotation = endRotation; // Ensure it ends at the exact position
         _isMoving = false;
-
-        if (rotationDelta < 0)  // Reset
-        {
-            ResetTrebuchet();
-        }
     }
 }
