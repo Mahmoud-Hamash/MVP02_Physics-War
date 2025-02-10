@@ -1,53 +1,92 @@
-using System.Collections;
-using System.Collections.Generic;
-using Meta.WitAi.TTS.Utilities;
-using Unity.VisualScripting;
+using System.Collections.Generic;  // Ensure this is included to use Dictionary
 using UnityEngine;
+using Meta.WitAi.TTS.Utilities;
 
 public class Teacher : MonoBehaviour
 {
-    [SerializeField] private Transform _counterWeight;
-    [SerializeField] private Transform _targetPosition;
-    [SerializeField] private TTSSpeaker _ttsSpeaker;
-    [SerializeField] private float _walkSpeed = 1f;
-    [SerializeField] private string _introText;
+    [SerializeField] private TTSSpeaker _ttsSpeaker;  // Reference to TTSSpeaker to speak the text
     private Animator _animator;
+
+    private readonly Dictionary<int, string[]> eventTexts = new Dictionary<int, string[]>
+    {
+        { 1, new[] { "Ever seen a giant slingshot throw huge stones over castle walls? That's a trebuchet!", 
+                     "A falling weight creates energy, launching projectiles. Same physics as cranes & rockets! Ready to learn?", 
+                     "Okay, first things first: let's load up the counterweight. Grab some stones and place them in the counterweight." } },
+
+        { 2, new[] { "Now, the heavier that counterweight gets, the further our projectile's going to fly.", 
+                     "So, more stones in the counterweight means more distance for our projectile. Now, take a look at this equation – it helps explain exactly how that works." } },
+
+        { 3, new[] { "Alright, now let's put our projectile in place. Notice how much it weighs.", 
+                     "Its weight matters because a heavier one needs more energy to launch, affecting how far it travels—a lighter projectile flies further with the same counterweight." } },
+
+        { 4, new[] { "There are other factors, but we've kept them constant so you can focus on the counterweight and projectile masses.", 
+                     "Now, try and hit that target 3 meters away by pulling the trebuchet handle." } },
+
+        { 5, new[] { "A fine shot, warrior!", 
+                     "Now, warrior, for our next challenge! We'll try to hit this second target. Remember what you've learned: greater distance requires... what? Think on it, and then let fly!" } }
+    };
+
+    private int currentEvent = 1;  // Keep track of which event is currently active
+    private bool isSpeaking = false;  // To prevent multiple calls to Speak() while already speaking
 
     private void Start()
     {
         _animator = GetComponent<Animator>();
-
         _animator.SetInteger("status", 1);
-    }
 
-    private void Speak()
-    {
-        _ttsSpeaker.Speak(_introText);
+        // Optionally, you can start speaking the intro text here:
+        Speak("Welcome to the trebuchet tutorial! Get ready to learn some amazing physics.");
     }
 
     private void Update()
     {
-        // Debug.DrawRay(transform.position, (new Vector3(CameraLoader.xrCamera.transform.position.x, transform.position.y, CameraLoader.xrCamera.transform.position.z) - transform.position) * 10, Color.red);
-        Quaternion targetRotation1 = Quaternion.LookRotation(new Vector3(CameraLoader.xrCamera.transform.position.x, transform.position.y, CameraLoader.xrCamera.transform.position.z) - transform.position);
-        transform.rotation = targetRotation1;
-            
-        // draw ray
-        if(_animator.GetInteger("status") != 1 ) return;
-
-        // only rotate on y axis when looking at target
-        if (Vector3.Distance(transform.position, _targetPosition.position) > 0.1f)
+        // Listen for Enter key press
+        if (Input.GetKeyDown(KeyCode.Return) && !isSpeaking)  // Check if we're not currently speaking
         {
-            Quaternion targetRotation = Quaternion.LookRotation(new Vector3(_targetPosition.position.x, transform.position.y, _targetPosition.position.z) - transform.position);
-            transform.rotation = targetRotation;
-            transform.position = Vector3.MoveTowards(transform.position, _targetPosition.position, _walkSpeed * Time.deltaTime);
+            TriggerEvent(currentEvent);
+        }
+    }
+
+    public void TriggerEvent(int eventId)
+    {
+        if (eventTexts.ContainsKey(eventId))
+        {
+            Debug.Log($"[Teacher] Event {eventId} triggered. Speaking now...");
+            isSpeaking = true;  // Prevent multiple triggers while speaking
+
+            // Speak all texts for the event
+            foreach (string text in eventTexts[eventId])
+            {
+                Speak(text);
+            }
+
+            // After finishing the event, move to the next one
+            currentEvent++;
+
+            // Ensure we don't go beyond the available events
+            if (currentEvent > eventTexts.Count)
+            {
+                Debug.Log("[Teacher] All events completed.");
+                currentEvent = 1;  // Reset to the first event (or disable this if you want to stop)
+            }
         }
         else
         {
-            transform.position = _targetPosition.position;
-            Quaternion targetRotation = Quaternion.LookRotation(new Vector3(CameraLoader.xrCamera.transform.position.x, transform.position.y, CameraLoader.xrCamera.transform.position.z) - transform.position);
-            transform.rotation = targetRotation;
-            _animator.SetInteger("status", 0);
-            Speak();
+            Debug.LogWarning($"[Teacher] No dialogue found for Event {eventId}");
+        }
+    }
+
+    private void Speak(string text)
+    {
+        if (_ttsSpeaker != null)
+        {
+            Debug.Log($"[Teacher] Speaking: {text}");
+            _ttsSpeaker.Speak(text);  // Speak the text using TTSSpeaker
+            isSpeaking = false;  // Allow new event triggers after the speech is finished
+        }
+        else
+        {
+            Debug.LogError("[Teacher] TTSSpeaker is not assigned!");
         }
     }
 }
