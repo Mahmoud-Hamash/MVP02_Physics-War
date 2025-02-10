@@ -14,10 +14,10 @@ public class Teacher : MonoBehaviour
                      "Okay, first things first: let's load up the counterweight. Grab some stones and place them in the counterweight." } },
 
         { 2, new[] { "Now, the heavier that counterweight gets, the further our projectile's going to fly.", 
-                     "So, more stones in the counterweight means more distance for our projectile. Now, take a look at this equation – it helps explain exactly how that works." } },
+                     "So, more stones in the counterweight means more distance for our projectile. Now, take a look at this equation – it helps explain exactly how that works." } }, // formula near counterweight 
 
         { 3, new[] { "Alright, now let's put our projectile in place. Notice how much it weighs.", 
-                     "Its weight matters because a heavier one needs more energy to launch, affecting how far it travels—a lighter projectile flies further with the same counterweight." } },
+                     "Its weight matters because a heavier one needs more energy to launch, affecting how far it travels—a lighter projectile flies further with the same counterweight." } },// formula, near projectile place holder
 
         { 4, new[] { "There are other factors, but we've kept them constant so you can focus on the counterweight and projectile masses.", 
                      "Now, try and hit that target 3 meters away by pulling the trebuchet handle." } },
