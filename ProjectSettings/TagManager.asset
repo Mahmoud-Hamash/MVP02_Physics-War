@@ -10,6 +10,7 @@ TagManager:
   - LocoButton
   - LocoText
   - Projectile
+  - Loadable
   layers:
   - Default
   - TransparentFX

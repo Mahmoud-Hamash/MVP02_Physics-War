@@ -1,12 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Oculus.Interaction.HandGrab;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class ProjectileTrigger : MonoBehaviour
 {
     [SerializeField] private GameObject projectile;
+    [SerializeField] private GameObject sphereMesh;
     
     private bool _projectileIn = false;
     private GameObject _currentProjectile;
@@ -21,22 +23,31 @@ public class ProjectileTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_projectileIn)
+        if (_projectileIn && projectile != null)
         {
-            // Matrix4x4 matrix = Matrix4x4.TRS(transform.position, transform.rotation, _hoveredMeshFilter.transform.lossyScale);
-            // Graphics.RenderMesh(_renderParams, _hoveredMeshFilter.mesh, 0, matrix);
-            if (_currentProjectile.transform.parent == null)    // released
+            if (_currentProjectile.GetComponentInChildren<HandGrabInteractable>().SelectingInteractors.Count == 0)    // released
             {
                 Destroy(_currentProjectile);
+                sphereMesh.SetActive(false);
                 projectile.SetActive(true);
-                // Signal 
+                _projectileIn = false;
+                _currentProjectile = null;
             }
+            else
+            {
+                sphereMesh.SetActive(true);
+            }
+        }
+        else
+        {
+            sphereMesh.SetActive(false);
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Projectile"))
+        // Check if the projectile is from outside
+        if (other.CompareTag("Loadable"))
         {
             _projectileIn = true;
             _currentProjectile = other.gameObject;
@@ -45,7 +56,7 @@ public class ProjectileTrigger : MonoBehaviour
     
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Projectile"))
+        if (other.CompareTag("Loadable"))
         {
             _projectileIn = false;
             _currentProjectile = null;
