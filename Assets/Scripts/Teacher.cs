@@ -9,21 +9,21 @@ public class Teacher : MonoBehaviour
 
     private readonly Dictionary<int, string[]> eventTexts = new Dictionary<int, string[]>
     {
-        { 1, new[] { "Ever seen a giant slingshot throw huge stones over castle walls? That's a trebuchet!", 
-                     "A falling weight creates energy, launching projectiles. Same physics as cranes & rockets! Ready to learn?", 
-                     "Okay, first things first: let's load up the counterweight. Grab some stones and place them in the counterweight." } },
+        { 1, new[] { "Okay, first things first: let's load up the counterweight. Grab some stones and place them in the counterweight." } },
 
-        { 2, new[] { "Now, the heavier that counterweight gets, the further our projectile's going to fly.", 
-                     "So, more stones in the counterweight means more distance for our projectile. Now, take a look at this equation – it helps explain exactly how that works." } },
 
-        { 3, new[] { "Alright, now let's put our projectile in place. Notice how much it weighs.", 
-                     "Its weight matters because a heavier one needs more energy to launch, affecting how far it travels—a lighter projectile flies further with the same counterweight." } },
+        { 2, new[] { "So, more stones in the counterweight means more distance for our projectile. Now, take a look at this equation – it helps explain exactly how that works." } }, // formula near counterweight
 
-        { 4, new[] { "There are other factors, but we've kept them constant so you can focus on the counterweight and projectile masses.", 
-                     "Now, try and hit that target 3 meters away by pulling the trebuchet handle." } },
 
-        { 5, new[] { "A fine shot, warrior!", 
-                     "Now, warrior, for our next challenge! We'll try to hit this second target. Remember what you've learned: greater distance requires... what? Think on it, and then let fly!" } }
+        { 3, new[] { "Alright, now let's put our projectile in place. Notice how much it weighs, Its weight matters because a heavier one needs more energy to launch, affecting how far it travels—a lighter projectile flies further with the same counterweight." } },// formula, near projectile place holder
+
+
+        { 4, new[] { "There are other factors, but we've kept them constant so you can focus on the counterweight and projectile masses.",
+            "Now, try and hit that target 3 meters away by pulling the trebuchet handle." } },
+
+
+        { 5, new[] { "A fine shot, warrior! Now, warrior, for our next challenge! We'll try to hit this second target. Remember what you've learned: greater distance requires... what? Think on it, and then let fly!" } }
+
     };
 
     private int currentEvent = 1;  // Keep track of which event is currently active
