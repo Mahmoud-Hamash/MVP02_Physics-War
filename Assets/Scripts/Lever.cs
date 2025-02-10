@@ -15,13 +15,7 @@ public class Lever : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        trebuchet = FindFirstObjectByType<TrebuchetControllerUpdated>();
     }
 
     public void OnSelected()
@@ -42,7 +36,6 @@ public class Lever : MonoBehaviour
             {
                 _isOff = true;  // Toggle before rotation starts
                 StartCoroutine(RotateLever(-45f));
-                // ResetTrebuchet();
             }
         }
     }
@@ -79,6 +72,5 @@ public class Lever : MonoBehaviour
         {
             ResetTrebuchet();
         }
-        
     }
 }

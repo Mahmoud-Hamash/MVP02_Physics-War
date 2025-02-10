@@ -12,13 +12,6 @@ public class ProjectileTrigger : MonoBehaviour
     
     private bool _projectileIn = false;
     private GameObject _currentProjectile;
-    
-        
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()

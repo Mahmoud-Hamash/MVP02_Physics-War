@@ -26,7 +26,6 @@ public class TrebuchetControllerUpdated : MonoBehaviour
     private Vector3 currentAcceleration;
 
     public float releaseDelay = 0.7f; // Adjust this to fine-tune the hinge release timing
-    public float launchSpeed = 10f; // Adjust launch force
 
     void Start()
     {
@@ -39,8 +38,6 @@ public class TrebuchetControllerUpdated : MonoBehaviour
         trail.startColor = Color.yellow;
         trail.endColor = Color.red;
         trail.enabled = false; // Disable until launch
-
-        // pumpkinRb = pumpkin.GetComponent<Rigidbody>();
     }
 
 

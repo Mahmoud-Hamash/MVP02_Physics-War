@@ -189,6 +189,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handle: {fileID: 1210452713885572862}
   trebuchet: {fileID: 0}
+  trebuchetPrefab: {fileID: 8411152072950658647, guid: 7194ba8bed2a8794f82f11cf9008497e,
+    type: 3}
   rotationSpeed: 1
 --- !u!1 &5626047475851860908
 GameObject:
@@ -2678,7 +2680,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 6547
+  m_VersionIndex: 6556
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -5527,7 +5529,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 6547
+  m_VersionIndex: 6556
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
