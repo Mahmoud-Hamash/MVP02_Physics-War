@@ -20,9 +20,14 @@ public class ProjectileTrigger : MonoBehaviour
         {
             if (_currentProjectile.GetComponentInChildren<HandGrabInteractable>().SelectingInteractors.Count == 0)    // released
             {
+                var massCategory = _currentProjectile.GetComponent<Projectile>().GetMassCategory();
+                
                 Destroy(_currentProjectile);
                 sphereMesh.SetActive(false);
+                
                 projectile.SetActive(true);
+                projectile.GetComponent<Projectile>().SetMassCategory(massCategory);
+                
                 _projectileIn = false;
                 _currentProjectile = null;
             }
