@@ -9,20 +9,19 @@ public class Teacher : MonoBehaviour
 
     private readonly Dictionary<int, string[]> eventTexts = new Dictionary<int, string[]>
     {
-        { 1, new[] { "Okay, first things first: let's load up the counterweight. Grab some stones and place them in the counterweight." } },
+        { 1, new[] { "Okay, first things first: the counterweight. The heavier it is, the more distance our projectile will travel. Now, take a look at this equation—it helps explain exactly how that works." } },
 
 
-        { 2, new[] { "So, more stones in the counterweight means more distance for our projectile. Now, take a look at this equation – it helps explain exactly how that works." } }, // formula near counterweight
+        { 2, new[] { "Alright, now let's put the heavy projectile in place. Its weight matters—heavier ones need more energy to launch. Look at the equation again!" } }, // formula near counterweight
 
 
-        { 3, new[] { "Alright, now let's put our projectile in place. Notice how much it weighs, Its weight matters because a heavier one needs more energy to launch, affecting how far it travels—a lighter projectile flies further with the same counterweight." } },// formula, near projectile place holder
+        { 3, new[] { "Try the medium-weight projectile to see if you can destroy the first tower!" } },// formula, near projectile place holder
 
 
-        { 4, new[] { "There are other factors, but we've kept them constant so you can focus on the counterweight and projectile masses.",
-            "Now, try and hit that target 3 meters away by pulling the trebuchet handle." } },
+        { 4, new[] { "Great shot, warrior! Now, hit the second tower. Greater distance needs what? Think and fire!" } },
 
 
-        { 5, new[] { "A fine shot, warrior! Now, warrior, for our next challenge! We'll try to hit this second target. Remember what you've learned: greater distance requires... what? Think on it, and then let fly!" } }
+        { 5, new[] { "Well done, warrior! You've mastered the trebuchet—you're ready to go to war!" } }
 
     };
 
@@ -40,7 +39,7 @@ public class Teacher : MonoBehaviour
         _animator.SetInteger("status", 1);
 
         // Optionally, you can start speaking the intro text here:
-        Speak("Welcome to the trebuchet tutorial! Get ready to learn some amazing physics.");
+        Speak("Welcome to this weapon tutorial! Get ready to learn some amazing physics. This medieval weapon used physics to smash fortresses. Ready to learn?");
     }
 
     private void Update()
@@ -66,10 +65,10 @@ public class Teacher : MonoBehaviour
             }
             
             // HARDCODED START
-            if (eventId == 2)
+            if (eventId == 1)
             {
                 ShowNearFormulaCounterWeightStep2();
-            } else if (eventId == 3)
+            } else if (eventId == 2)
             {
                 Debug.Log("EVENT 3 hides step 2 and shows step 3");
                 HideNearFormulaCounterWeightStep2();
