@@ -1,53 +1,136 @@
-using System.Collections;
-using System.Collections.Generic;
-using Meta.WitAi.TTS.Utilities;
-using Unity.VisualScripting;
+using System.Collections.Generic;  // Ensure this is included to use Dictionary
 using UnityEngine;
+using Meta.WitAi.TTS.Utilities;
 
 public class Teacher : MonoBehaviour
 {
-    [SerializeField] private Transform _counterWeight;
-    [SerializeField] private Transform _targetPosition;
-    [SerializeField] private TTSSpeaker _ttsSpeaker;
-    [SerializeField] private float _walkSpeed = 1f;
-    [SerializeField] private string _introText;
+    [SerializeField] private TTSSpeaker _ttsSpeaker;  // Reference to TTSSpeaker to speak the text
     private Animator _animator;
 
+    private readonly Dictionary<int, string[]> eventTexts = new Dictionary<int, string[]>
+    {
+        { 1, new[] { "Okay, first things first: the counterweight. The heavier it is, the more distance our projectile will travel. Now, take a look at this equation—it helps explain exactly how that works." } },
+
+
+        { 2, new[] { "Alright, now let's put the heavy projectile in place. Its weight matters—heavier ones need more energy to launch. Look at the equation again!" } }, // formula near counterweight
+
+
+        { 3, new[] { "Try the medium-weight projectile to see if you can destroy the first tower!" } },// formula, near projectile place holder
+
+
+        { 4, new[] { "Great shot, warrior! Now, hit the second tower. Greater distance needs what? Think and fire!" } },
+
+
+        { 5, new[] { "Well done, warrior! You've mastered the trebuchet—you're ready to go to war!" } }
+
+    };
+
+    private int currentEvent = 1;  // Keep track of which event is currently active
+    private bool isSpeaking = false;  // To prevent multiple calls to Speak() while already speaking
+
+    public GameObject ArrowStep2;
+    public GameObject FormulaStep2;
+    public GameObject ArrowStep3;
+    public GameObject FormulaStep3;
+    
     private void Start()
     {
         _animator = GetComponent<Animator>();
-
         _animator.SetInteger("status", 1);
-    }
 
-    private void Speak()
-    {
-        _ttsSpeaker.Speak(_introText);
+        // Optionally, you can start speaking the intro text here:
+        Speak("Welcome to this weapon tutorial! Get ready to learn some amazing physics. This medieval weapon used physics to smash fortresses. Ready to learn?");
     }
 
     private void Update()
     {
-        // Debug.DrawRay(transform.position, (new Vector3(CameraLoader.xrCamera.transform.position.x, transform.position.y, CameraLoader.xrCamera.transform.position.z) - transform.position) * 10, Color.red);
-        Quaternion targetRotation1 = Quaternion.LookRotation(new Vector3(CameraLoader.xrCamera.transform.position.x, transform.position.y, CameraLoader.xrCamera.transform.position.z) - transform.position);
-        transform.rotation = targetRotation1;
-            
-        // draw ray
-        if(_animator.GetInteger("status") != 1 ) return;
-
-        // only rotate on y axis when looking at target
-        if (Vector3.Distance(transform.position, _targetPosition.position) > 0.1f)
+        // Listen for Enter key press
+        if (Input.GetKeyDown(KeyCode.Return) && !isSpeaking)  // Check if we're not currently speaking
         {
-            Quaternion targetRotation = Quaternion.LookRotation(new Vector3(_targetPosition.position.x, transform.position.y, _targetPosition.position.z) - transform.position);
-            transform.rotation = targetRotation;
-            transform.position = Vector3.MoveTowards(transform.position, _targetPosition.position, _walkSpeed * Time.deltaTime);
+            TriggerEvent(currentEvent);
+        }
+    }
+
+    public void TriggerEvent(int eventId)
+    {
+        if (eventTexts.ContainsKey(eventId))
+        {
+            Debug.Log($"[Teacher] Event {eventId} triggered. Speaking now...");
+            isSpeaking = true;  // Prevent multiple triggers while speaking
+
+            // Speak all texts for the event
+            foreach (string text in eventTexts[eventId])
+            {
+                Speak(text);
+            }
+            
+            // HARDCODED START
+            if (eventId == 1)
+            {
+                ShowNearFormulaCounterWeightStep2();
+            } else if (eventId == 2)
+            {
+                Debug.Log("EVENT 3 hides step 2 and shows step 3");
+                HideNearFormulaCounterWeightStep2();
+                ShowNearFormulaProjectileStep3();
+            }
+            else if (eventId == 4)
+                HideNearFormulaProjectileStep3();
+            // HARDCODED END
+
+            // After finishing the event, move to the next one
+            currentEvent++;
+
+            // Ensure we don't go beyond the available events
+            if (currentEvent > eventTexts.Count)
+            {
+                Debug.Log("[Teacher] All events completed.");
+                currentEvent = 1;  // Reset to the first event (or disable this if you want to stop)
+            }
         }
         else
         {
-            transform.position = _targetPosition.position;
-            Quaternion targetRotation = Quaternion.LookRotation(new Vector3(CameraLoader.xrCamera.transform.position.x, transform.position.y, CameraLoader.xrCamera.transform.position.z) - transform.position);
-            transform.rotation = targetRotation;
-            _animator.SetInteger("status", 0);
-            Speak();
+            Debug.LogWarning($"[Teacher] No dialogue found for Event {eventId}");
+        }
+    }
+
+    // HARDCODED START
+    private void ShowNearFormulaCounterWeightStep2()
+    {
+        ArrowStep2.SetActive(true);
+        FormulaStep2.SetActive(true);
+    }
+
+    private void HideNearFormulaCounterWeightStep2()
+    {
+        ArrowStep2.SetActive(false);
+        FormulaStep2.SetActive(false);
+    }
+    
+    private void ShowNearFormulaProjectileStep3()
+    {
+        ArrowStep3.SetActive(true);
+        FormulaStep3.SetActive(true);
+    }
+
+    private void HideNearFormulaProjectileStep3()
+    {
+        ArrowStep3.SetActive(false);
+        FormulaStep3.SetActive(false);
+    }
+    // HARDCODED END
+
+    private void Speak(string text)
+    {
+        if (_ttsSpeaker != null)
+        {
+            Debug.Log($"[Teacher] Speaking: {text}");
+            _ttsSpeaker.Speak(text);  // Speak the text using TTSSpeaker
+            isSpeaking = false;  // Allow new event triggers after the speech is finished
+        }
+        else
+        {
+            Debug.LogError("[Teacher] TTSSpeaker is not assigned!");
         }
     }
 }

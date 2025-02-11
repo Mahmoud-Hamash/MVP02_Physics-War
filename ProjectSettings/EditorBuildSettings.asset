@@ -5,9 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/TrebuchetLabScene.unity
+    guid: 33d7556579de47c43addca4373d1e673
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 5c6ba6cfea5982747bd8680945094185,
       type: 2}
