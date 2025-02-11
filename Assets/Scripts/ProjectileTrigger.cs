@@ -16,13 +16,18 @@ public class ProjectileTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_projectileIn && projectile != null)
+        if (_projectileIn && projectile != null && !projectile.activeSelf)
         {
             if (_currentProjectile.GetComponentInChildren<HandGrabInteractable>().SelectingInteractors.Count == 0)    // released
             {
+                var massCategory = _currentProjectile.GetComponent<Projectile>().GetMassCategory();
+                
                 Destroy(_currentProjectile);
                 sphereMesh.SetActive(false);
+                
                 projectile.SetActive(true);
+                projectile.GetComponent<Projectile>().SetMassCategory(massCategory);
+                
                 _projectileIn = false;
                 _currentProjectile = null;
             }
