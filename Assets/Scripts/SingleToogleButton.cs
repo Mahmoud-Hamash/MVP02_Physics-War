@@ -5,7 +5,7 @@ using UnityEngine;
 public class SingleToogleButton : MonoBehaviour
 {
     public Renderer _renderer;
-    public string optionName;
+    public WeaponType optionType; 
     public GameObject model3D;
     
     public void ChangeSpeed3DModel(float newSpeed)
@@ -13,4 +13,10 @@ public class SingleToogleButton : MonoBehaviour
         model3D.GetComponent<RotateObject>().rotationSpeed = newSpeed;
     }
 
+}
+
+public enum WeaponType
+{
+    TREBUCHET,
+    SLINGSHOT
 }

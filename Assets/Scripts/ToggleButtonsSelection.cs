@@ -6,7 +6,7 @@ public class ToggleButtonsSelection : MonoBehaviour
     public Material defaultMaterial; // Default material for this letter
     public Material selectedMaterial; // Material when selected
     private Renderer _renderer;
-    public string selectedToogleButton = "";
+    public WeaponType? selectedToogleButton = null; // Use nullable WeaponType
     private float speedSelected = 0f;
     private float speedDeselected = 35f;
     
@@ -20,7 +20,7 @@ public class ToggleButtonsSelection : MonoBehaviour
     public void OnSelectEntered(GameObject obj)
     {
         SingleToogleButton buttonSelected = obj.GetComponent<SingleToogleButton>();
-        selectedToogleButton = buttonSelected.optionName;
+        selectedToogleButton = buttonSelected.optionType;
         HighlightButton(buttonSelected);
     }
 

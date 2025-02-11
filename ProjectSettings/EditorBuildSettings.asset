@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Rommy Props.unity
     guid: bc8be4ff04c0c4620bd7fa4d77bbb457
+  - enabled: 0
+    path: Assets/Scenes/RommyScene.unity
+    guid: ecedef818739a4486b6965458f7554f1
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 5c6ba6cfea5982747bd8680945094185,
       type: 2}

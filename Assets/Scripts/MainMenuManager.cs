@@ -39,9 +39,10 @@ public class MainMenuManager : MonoBehaviour
         
     }
     
+
     public void LoadWeaponScene()
     {
-        if (groupToogle.selectedToogleButton == "")
+        if (groupToogle.selectedToogleButton == null) // Check if no button is selected
         {
             Debug.Log("NO OPTION SELECTED");
             errorMessageUI.SetActive(true);
@@ -49,9 +50,16 @@ public class MainMenuManager : MonoBehaviour
         }
         else
         {
-            LoadNewScene(groupToogle.selectedToogleButton);
+            switch (groupToogle.selectedToogleButton) // Use enum for comparison
+            {
+                case WeaponType.TREBUCHET:
+                    LoadNewScene("RommyScene");
+                    break;
+                case WeaponType.SLINGSHOT:
+                    LoadNewScene("Rommy Props");
+                    break;
+            }
         }
-        
     }
 
     private void HideErrorMessage()
