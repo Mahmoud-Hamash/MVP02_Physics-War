@@ -7,8 +7,20 @@ public class MainMenuManager : MonoBehaviour
     public GameObject mainMenuTrainingButton;
     public GameObject selectionWeaponUIs;
     public GameObject errorMessageUI;
+    public AudioClip touchSound; 
 
     public ToggleButtonsSelection groupToogle;
+    private AudioSource audioSource;
+    private float SFXVolume = 0.7f;
+
+    private void Start()
+    {
+        // Add an AudioSource component dynamically if not already present
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.playOnAwake = false;
+        audioSource.spatialBlend = 1f; // Make the sound 3D
+    }
+    
     // Method to load a new scene
     public void LoadNewScene(string sceneName)
     {
@@ -17,12 +29,17 @@ public class MainMenuManager : MonoBehaviour
 
     public void LoadWarScene()
     {
+        // Touch sound
+        audioSource.PlayOneShot(touchSound, SFXVolume);
         LoadNewScene("Rommy Props");
     }
 
     public void DisplayWeapons()
     {
         Debug.Log("Weapons displayed");
+        // Touch sound
+        audioSource.PlayOneShot(touchSound, SFXVolume);
+        
         mainMenuWarButton.SetActive(false);
         mainMenuTrainingButton.SetActive(false);
         selectionWeaponUIs.SetActive(true);
@@ -32,6 +49,9 @@ public class MainMenuManager : MonoBehaviour
     public void BackToMainMenu()
     {
         Debug.Log("Display buttons Main");
+        // Touch sound
+        audioSource.PlayOneShot(touchSound, SFXVolume);
+        
         selectionWeaponUIs.SetActive(false);
         mainMenuWarButton.SetActive(true);
         mainMenuTrainingButton.SetActive(true);
@@ -50,6 +70,9 @@ public class MainMenuManager : MonoBehaviour
         }
         else
         {
+            // Touch sound
+            audioSource.PlayOneShot(touchSound, SFXVolume);
+            
             switch (groupToogle.selectedToogleButton) // Use enum for comparison
             {
                 case WeaponType.TREBUCHET:

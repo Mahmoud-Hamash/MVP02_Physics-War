@@ -9,6 +9,9 @@ public class ToggleButtonsSelection : MonoBehaviour
     public WeaponType? selectedToogleButton = null; // Use nullable WeaponType
     private float speedSelected = 0f;
     private float speedDeselected = 35f;
+    public AudioClip touchSound; 
+    private AudioSource audioSource;
+    private float SFXVolume = 0.7f;
     
 
     void Start()
@@ -19,6 +22,8 @@ public class ToggleButtonsSelection : MonoBehaviour
 
     public void OnSelectEntered(GameObject obj)
     {
+        // Touch sound
+        audioSource.PlayOneShot(touchSound, SFXVolume);
         SingleToogleButton buttonSelected = obj.GetComponent<SingleToogleButton>();
         selectedToogleButton = buttonSelected.optionType;
         HighlightButton(buttonSelected);
