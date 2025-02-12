@@ -13,16 +13,16 @@ public class Teacher : MonoBehaviour
 
     private readonly Dictionary<int, string[]> eventTexts = new Dictionary<int, string[]>
     {
-        { 1, new[] { "Okay, first things first: the counterweight. The heavier it is, the more distance our projectile will travel. Now, take a look at this equation—it helps explain exactly how that works." } },
+        { 1, new[] { "First things first: the counterweight. The heavier it is, the more distance our projectile will travel: take a look at this equation!" } },
 
 
-        { 2, new[] { "Alright, now let's put the heavy projectile in place. Its weight matters—heavier ones need more energy to launch. Look at the equation again!" } }, // formula near counterweight
+        { 2, new[] { "Alright, now let's put the heavy projectile in place. Its weight matters: heavier ones need more energy to launch. Look at the equation again!" } }, // formula near counterweight
 
 
-        { 3, new[] { "Try the medium-weight projectile to see if you can destroy the first tower!" } },// formula, near projectile place holder
+        { 3, new[] { "Now try the medium-weight projectile to see if you can destroy the first tower!" } },// formula, near projectile place holder
 
 
-        { 4, new[] { "Great shot, warrior! Now, hit the second tower. Greater distance needs what? Think and fire!" } },
+        { 4, new[] { "Great shot, warrior! Now, hit the second tower. Greater distance needs what? Think and fire: no hints this time!" } },
 
 
         { 5, new[] { "Well done, warrior! You've mastered the trebuchet—you're ready to go to war!" } }
@@ -31,10 +31,12 @@ public class Teacher : MonoBehaviour
     
     private bool isSpeaking = false;  // To prevent multiple calls to Speak() while already speaking
 
-    public GameObject ArrowStep2;
-    public GameObject FormulaStep2;
-    public GameObject ArrowStep3;
-    public GameObject FormulaStep3;
+    public GameObject arrowStep1;
+    //public GameObject FormulaStep2;
+    public GameObject arrowStep2;
+    public GameObject arrowStep3;
+    public GameObject formula;
+    public Banner banner;
     
     //[Obsolete("Obsolete")]
     private void Start()
@@ -106,17 +108,30 @@ public class Teacher : MonoBehaviour
             }
             
             // HARDCODED START
-            if (eventId == 1)
+            if (eventId == 1)   // show arrow1, formula
             {
-                ShowNearFormulaCounterWeightStep2();
-            } else if (eventId == 2)
+                arrowStep1.SetActive(true);
+                formula.SetActive(true);
+            } 
+            else if (eventId == 2)  // hide arrow1, show arrow2
             {
-                Debug.Log("EVENT 3 hides step 2 and shows step 3");
-                HideNearFormulaCounterWeightStep2();
-                ShowNearFormulaProjectileStep3();
+                arrowStep1.SetActive(false);
+                arrowStep2.SetActive(true);
             }
-            else if (eventId == 4)
-                HideNearFormulaProjectileStep3();
+            else if (eventId == 3)  // hide arrow2, show arrow3
+            {
+                arrowStep2.SetActive(false);
+                arrowStep3.SetActive(true);
+            }
+            else if (eventId == 4)  // hide arrow3
+            {
+                arrowStep3.SetActive(false);
+            }
+            else if (eventId == 5)  // hide formula, show banner
+            {
+                formula.SetActive(false);
+                banner.ShowBanner();
+            }
             // HARDCODED END
 
             // After finishing the event, move to the next one
@@ -134,32 +149,6 @@ public class Teacher : MonoBehaviour
             Debug.LogWarning($"[Teacher] No dialogue found for Event {eventId}");
         }
     }
-
-    // HARDCODED START
-    private void ShowNearFormulaCounterWeightStep2()
-    {
-        ArrowStep2.SetActive(true);
-        FormulaStep2.SetActive(true);
-    }
-
-    private void HideNearFormulaCounterWeightStep2()
-    {
-        ArrowStep2.SetActive(false);
-        FormulaStep2.SetActive(false);
-    }
-    
-    private void ShowNearFormulaProjectileStep3()
-    {
-        ArrowStep3.SetActive(true);
-        FormulaStep3.SetActive(true);
-    }
-
-    private void HideNearFormulaProjectileStep3()
-    {
-        ArrowStep3.SetActive(false);
-        FormulaStep3.SetActive(false);
-    }
-    // HARDCODED END
 
     private void Speak(string text)
     {

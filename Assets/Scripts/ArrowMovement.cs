@@ -9,6 +9,7 @@ public class ArrowMovement : MonoBehaviour
 
     void Start()
     {
+        gameObject.SetActive(false);
         startPos = transform.position; // Store the initial position
     }
 
