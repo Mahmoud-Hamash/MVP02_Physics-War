@@ -1196,8 +1196,9 @@ MonoBehaviour:
   isImpacted: 0
   destructionDelay: 5
   explosionForce: 10
-  explosionEffectPrefab: {fileID: 0}
-  explosionSound: {fileID: 0}
+  explosionEffectPrefab: {fileID: 6295591714625531937, guid: 31395a5e5d46e42e986faea26151024b,
+    type: 3}
+  explosionSound: {fileID: 8300000, guid: ba050ba4cb649b747863f22127084a6a, type: 3}
   explosionVolume: 1
 --- !u!82 &2282153271459653316
 AudioSource:

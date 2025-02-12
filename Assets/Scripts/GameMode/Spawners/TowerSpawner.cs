@@ -21,7 +21,7 @@ public class TowerSpawner : MonoBehaviour
         GameObject palisadeWall = _palisadeSpawner.GetPalisadeWall();
         tower.transform.localScale = tower.transform.localScale * _scale;
         tower.transform.SetPositionAndRotation(palisadeWall.transform.position + new Vector3(0,0,0), palisadeWall.transform.rotation);
-        tower.transform.Rotate(0, 180, 0);
-        tower.transform.position += -tower.transform.forward * _zDistance;
+        // tower.transform.Rotate(0, 180, 0);
+        tower.transform.position += tower.transform.forward * _zDistance;
     }
 }
