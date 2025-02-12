@@ -322,7 +322,7 @@ Transform:
   m_GameObject: {fileID: 620625193666667506}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.70710677, z: -0.70710677, w: 0}
-  m_LocalPosition: {x: -0.351, y: 1.879, z: -2.343}
+  m_LocalPosition: {x: -0.403, y: 1.874, z: -2.343}
   m_LocalScale: {x: 1.0735, y: 0.911612, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2522,8 +2522,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2808910940437162628}
-  - component: {fileID: 6725814081661817443}
   - component: {fileID: 5066130753934242387}
+  - component: {fileID: 5585683004762235445}
   m_Layer: 0
   m_Name: MidTower - XPS
   m_TagString: Untagged
@@ -2652,7 +2652,28 @@ Transform:
   - {fileID: 237375446908377656}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &6725814081661817443
+--- !u!114 &5066130753934242387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1386702966319899077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e49f2b4b4b32b42bca32ca8f25fa9b24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitsToDestroy: 3
+  impactEffectPrefab: {fileID: 3428290567365265438, guid: 06c562cbbc337458987c27300d900a4a,
+    type: 3}
+  destructionDelay: 5
+  explosionForce: 5
+  explosionEffectPrefab: {fileID: 0}
+  explosionSound: {fileID: 8300000, guid: 65b39cb20217c453a92974ac4d3fcfdb, type: 3}
+  impactSound: {fileID: 8300000, guid: 71d7feebeac9e455fbdda2cb8925891f, type: 3}
+  explosionVolume: 1
+--- !u!82 &5585683004762235445
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2748,27 +2769,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &5066130753934242387
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1386702966319899077}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e49f2b4b4b32b42bca32ca8f25fa9b24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitsToDestroy: 3
-  impactEffectPrefab: {fileID: 3428290567365265438, guid: 06c562cbbc337458987c27300d900a4a,
-    type: 3}
-  destructionDelay: 5
-  explosionForce: 5
-  explosionEffectPrefab: {fileID: 0}
-  explosionSound: {fileID: 8300000, guid: 65b39cb20217c453a92974ac4d3fcfdb, type: 3}
-  impactSound: {fileID: 0}
-  explosionVolume: 1
 --- !u!1 &1487502244741537290
 GameObject:
   m_ObjectHideFlags: 0
@@ -9665,13 +9665,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6108963358839493045}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.008726558, w: 0.999962}
-  m_LocalPosition: {x: 0.50143814, y: -1.0476, z: -2.225}
-  m_LocalScale: {x: 0.3, y: 0.8, z: 0.3}
+  m_LocalRotation: {x: -0.43302983, y: 0, z: 0, w: 0.9013796}
+  m_LocalPosition: {x: -0.443, y: 1.044, z: -0.977}
+  m_LocalScale: {x: 0.1, y: 0.35, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2808910940437162628}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 1}
+  m_LocalEulerAnglesHint: {x: -51.32, y: 0, z: 0}
 --- !u!33 &2990563120677879084
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -14483,13 +14483,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8646563828993285935}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.008726465, w: 0.999962}
-  m_LocalPosition: {x: -0.5098, y: -1.047, z: -2.223}
-  m_LocalScale: {x: 0.19896002, y: 0.80719995, z: 0.3}
+  m_LocalRotation: {x: -0.43302983, y: 0, z: 0, w: 0.9013796}
+  m_LocalPosition: {x: 0.485, y: 1.044, z: -0.977}
+  m_LocalScale: {x: 0.1, y: 0.35, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2808910940437162628}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -1}
+  m_LocalEulerAnglesHint: {x: -51.32, y: 0, z: 0}
 --- !u!33 &2283550976739603197
 MeshFilter:
   m_ObjectHideFlags: 0

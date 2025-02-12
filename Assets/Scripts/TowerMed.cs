@@ -25,6 +25,10 @@ public class TowerMed : MonoBehaviour
     void Start()
     {
         explosionEffectPrefab = impactEffectPrefab;
+        // Add an AudioSource component dynamically if not already present
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.playOnAwake = false;
+        audioSource.spatialBlend = 1f; // Make the sound 3D
     }
 
     public void RegisterHit(Vector3 impactPoint, Transform impactedPlank, int projectileID)
@@ -38,7 +42,9 @@ public class TowerMed : MonoBehaviour
         processedProjectiles.Add(projectileID);
 
         Debug.Log($"Impact registered! Current hits: {currentHits + 1}/{hitsToDestroy}");
-        //audioSource.PlayOneShot(impactSound, explosionVolume); -- ROMITA uncomment when having the sound 
+        Debug.Log(impactSound);
+        Debug.Log(audioSource);
+        audioSource.PlayOneShot(impactSound, explosionVolume); 
 
         currentHits++; // Increment hit count
 
