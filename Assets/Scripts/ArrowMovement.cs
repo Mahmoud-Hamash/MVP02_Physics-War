@@ -2,20 +2,20 @@ using UnityEngine;
 
 public class ArrowMovement : MonoBehaviour
 {
-    public Vector3 moveAxis = Vector3.forward; // Axis of movement (set in Inspector)
-    public float moveDistance = 2f; // How far the arrow moves
+    public float moveDistance = 2f; // Movement range
     public float moveSpeed = 2f; // Speed of movement
 
     private Vector3 startPos;
 
     void Start()
     {
-        startPos = transform.position;
+        gameObject.SetActive(false);
+        startPos = transform.position; // Store the initial position
     }
 
     void Update()
     {
         float offset = Mathf.Sin(Time.time * moveSpeed) * moveDistance;
-        transform.position = startPos + moveAxis.normalized * offset;
+        transform.position = startPos + transform.up * offset; // Move along the arrow's up
     }
 }

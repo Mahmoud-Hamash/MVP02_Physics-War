@@ -29,7 +29,7 @@ public class Tower : MonoBehaviour
         isImpacted = true; // Mark as impacted
 
         // Play SFX and VFX at the explosion point
-        //PlayExplosionEffects(explosionPoint); --ROMITA enable when you have the assets
+        PlayExplosionEffects(explosionPoint); 
         
         
         // Trigger haptic feedback on both controllers
@@ -53,6 +53,15 @@ public class Tower : MonoBehaviour
 
         // Schedule destruction of the tower after a delay
         Invoke(nameof(DestroyTower), destructionDelay);
+        
+        var teacher = GameObject.FindFirstObjectByType<Teacher>();
+        if (teacher != null)
+        {
+            if (teacher.GetCurrentEvent() == 4 || teacher.GetCurrentEvent() == 5)
+            {
+                teacher.TriggerEvent(teacher.GetCurrentEvent());
+            }
+        }
     }
 
     private void PlayExplosionEffects(Vector3 explosionPoint)
