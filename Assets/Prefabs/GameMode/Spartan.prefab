@@ -851,6 +851,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _choppingSound: {fileID: 8300000, guid: 79e4cb51b7a565a41833c24df204d308, type: 3}
+  _hitSound: {fileID: 8300000, guid: dccae5a596aa9ae41996df8d0432bef6, type: 3}
   _animator: {fileID: 7701384205389965910}
   _avatar: {fileID: 100741990461303915}
   _speed: 1
@@ -894,7 +895,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.763
   m_Pitch: 1
   Loop: 0
   Mute: 0

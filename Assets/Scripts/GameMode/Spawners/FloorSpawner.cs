@@ -4,6 +4,7 @@ using UnityEngine;
 public class FloorSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject _floorPrefab;
+    [SerializeField] private GameObject _treePrefab;
     [SerializeField] private PalisadeSpawner _palisadeSpawner;
     [SerializeField] private RoomLayout _roomLayout;
     [SerializeField] private float _zlength = 30f;
@@ -46,7 +47,27 @@ public class FloorSpawner : MonoBehaviour
         rotatedPosition = Quaternion.Euler(0, 180, 0) * rotatedPosition;
         floor.transform.forward = rotatedPosition;
 
+        CreateTrees(floor);
+
         return floor;
+    }
+
+    private void CreateTrees(GameObject floor)
+    {
+        float floorDepth = floor.GetComponent<MeshRenderer>().bounds.size.z;
+        float floorWidth = floor.GetComponent<MeshRenderer>().bounds.size.x;
+        float treeWidth = _treePrefab.GetComponentInChildren<Renderer>().bounds.size.x;
+
+        float treeStart = floor.transform.position.x-(floorWidth / 2);
+
+        int treeCount = ((int)(floorWidth / treeWidth)) + 1;
+        Debug.Log($"Tree count: {treeCount}");
+        for (int i = 0; i < treeCount; i++)
+        {
+            GameObject tree = Instantiate(_treePrefab);
+            tree.gameObject.name = $"Tree{i}";
+            tree.transform.position = new Vector3(treeStart + (i * treeWidth), 0, -floorDepth);
+        }
     }
 
 }

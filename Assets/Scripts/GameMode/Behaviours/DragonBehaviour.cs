@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class DragonBehaviour : MonoBehaviour
 {
+    [SerializeField] private AudioSource _flyingSound;
+    [SerializeField] private AudioSource _fireSound;
     [SerializeField] private float _speed;
     [SerializeField] private float _chargeSpeed;
     [SerializeField] private float _distanceToMove = 50f;
+    [SerializeField] private GameObject _fireEffect;
     private Animator _animator;
     private Vector3 _targetPosition;
     bool _isCharging = false;
@@ -27,13 +30,21 @@ public class DragonBehaviour : MonoBehaviour
         if(_isHovering) return;
 
         float distance = Vector3.Distance(transform.position, _targetPosition);
-        if (distance < 0.1f)
+        float targetDistance = _isCharging ? 20f : 0.1f;
+        if (distance < targetDistance)
         {
             if(_isCharging)
             {
                 _isHovering = true;
                 _animator.SetBool("Hover", true);
                 _animator.SetBool("FlyingFWD", false);
+
+                _flyingSound.Stop();
+                _fireSound.Play();
+
+                _fireEffect.SetActive(true);
+
+                transform.Rotate(10, 0, 0);
             }
             else
             {
@@ -51,7 +62,11 @@ public class DragonBehaviour : MonoBehaviour
     {
         _isCharging = true;
         _speed = _chargeSpeed;
-        _targetPosition = new Vector3(CameraLoader.xrCamera.transform.position.x, transform.position.y, CameraLoader.xrCamera.transform.position.z);
+
+        transform.position = new Vector3(transform.position.x, 5f, transform.position.z);
+        _targetPosition = new Vector3(CameraLoader.xrCamera.transform.position.x, 5f, CameraLoader.xrCamera.transform.position.z);
+
+        _flyingSound.Play();
 
         transform.LookAt(_targetPosition);
     }

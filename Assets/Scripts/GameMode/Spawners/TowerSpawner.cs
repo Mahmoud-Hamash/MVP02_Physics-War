@@ -16,6 +16,8 @@ public class TowerSpawner : MonoBehaviour
     private void SpawnTower()
     {
         GameObject tower = Instantiate(_towerPrefab);
+        tower.AddComponent<TowerBehaviour>();
+
         GameObject palisadeWall = _palisadeSpawner.GetPalisadeWall();
         tower.transform.localScale = tower.transform.localScale * _scale;
         tower.transform.SetPositionAndRotation(palisadeWall.transform.position + new Vector3(0,0,0), palisadeWall.transform.rotation);

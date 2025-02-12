@@ -12,6 +12,8 @@ TagManager:
   - Projectile
   - Loadable
   - First
+  - Enemy
+  - Palisade
   layers:
   - Default
   - TransparentFX
@@ -19,8 +21,8 @@ TagManager:
   - UIOverlay
   - Water
   - UI
-  - 
-  - 
+  - Ballista
+  - Trebuchet
   - 
   - 
   - 

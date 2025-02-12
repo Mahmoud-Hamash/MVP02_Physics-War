@@ -1,8 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using Meta.XR.MRUtilityKit;
-using Oculus.Interaction.Editor;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PalisadeSpawner : MonoBehaviour
@@ -59,6 +56,7 @@ public class PalisadeSpawner : MonoBehaviour
             PalisadeBehaviour palisade = Instantiate(_palisadePrefab, _palisadeWall.transform);
             palisade.gameObject.name = $"Palisade{i}";
             palisade.transform.localPosition = new Vector3(palisadeStart + (i * palisadeWidth), 0, 0);
+            if(i == 2) palisade.EnableScoreboard();
             _palisades.Add(palisade);
         }
     }
