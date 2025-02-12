@@ -566,7 +566,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1859
+  m_VersionIndex: 1877
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -704,9 +704,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2225036039394383940}
   serializedVersion: 2
-  m_LocalRotation: {x: 1.110223e-17, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7130505201695058947}
@@ -1062,7 +1062,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 4379
+  m_VersionIndex: 4397
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1181,6 +1181,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 713613a8ac80a4062a00a231957c74eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveAxis: {x: 0, y: 1, z: 0}
-  moveDistance: 0.5
-  moveSpeed: 1.7
+  moveDistance: 0.25
+  moveSpeed: 1.5
