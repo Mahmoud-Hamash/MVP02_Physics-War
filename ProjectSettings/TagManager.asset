@@ -11,11 +11,12 @@ TagManager:
   - LocoText
   - Projectile
   - Loadable
+  - First
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - UIOverlay
   - Water
   - UI
   - 

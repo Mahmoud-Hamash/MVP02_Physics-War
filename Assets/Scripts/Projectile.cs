@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Meta.XR.MRUtilityKit;
 using TMPro;
 using UnityEngine;
 
@@ -24,25 +26,25 @@ public class Projectile : MonoBehaviour
 
     void Update()
     {
-        if (transform.position.y < -5)  // fell down from the scene
+        if (gameObject.CompareTag("Projectile") && transform.position.y < 0) // pumpkin fell from scene
         {
-            Debug.Log("FALLING");
-            if (massCategory == MassCategory.Heavy)
-            {
-                Debug.Log("HEAVY");
-                var teacher = FindFirstObjectByType<Teacher>();
-                if (teacher != null)
-                {
-                    Debug.Log("TEACHER FOUND");
-                    if (teacher.GetCurrentEvent() == 3)
-                    {
-                        teacher.TriggerEvent(3);
-                        Debug.Log("TEACHER TRIGGERED EVENT");
-                    }
-                }
-            }
-            Destroy(gameObject);
+            Fall();
         }
+        // if (gameObject.CompareTag("Projectile") && transform.position.y < 0.09)  // pumpkin fell down from the scene
+        // {
+        //     if (massCategory == MassCategory.Heavy)
+        //     {
+        //         var teacher = FindFirstObjectByType<Teacher>();
+        //         if (teacher != null)
+        //         {
+        //             if (teacher.GetCurrentEvent() == 3)
+        //             {
+        //                 teacher.TriggerEvent(3);
+        //             }
+        //         }
+        //     }
+        //     Destroy(gameObject);
+        // }
     }
 
     public void SetMassCategory(MassCategory newMassCategory)
@@ -71,5 +73,32 @@ public class Projectile : MonoBehaviour
                 break;
         }
         textMass.text = $"{rb.mass}\nkg";
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        MRUKAnchor anchor = other.gameObject.GetComponentInParent<MRUKAnchor>();
+
+        if (gameObject.CompareTag("Projectile") && anchor != null && anchor.Label == MRUKAnchor.SceneLabels.FLOOR)
+        {
+            Fall();
+        }
+    }
+
+    private void Fall()
+    {
+        if (massCategory == MassCategory.Heavy)
+        {
+            var teacher = FindFirstObjectByType<Teacher>();
+            if (teacher != null)
+            {
+                if (teacher.GetCurrentEvent() == 3)
+                {
+                    teacher.TriggerEvent(3);
+                }
+            }
+        }
+
+        Destroy(gameObject);
     }
 }

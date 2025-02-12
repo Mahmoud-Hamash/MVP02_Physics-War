@@ -18,6 +18,8 @@ public class TrebuchetControllerUpdated : MonoBehaviour
     public TextMeshProUGUI pumpkinWeightText;
     public TextMeshProUGUI speedText;
     public TextMeshProUGUI forceText;
+    
+    public AudioSource fireSound;
 
     public GameObject objectToActivate; // Object to activate when pumpkin is released
 
@@ -56,7 +58,7 @@ public class TrebuchetControllerUpdated : MonoBehaviour
             forceText.text = "Force: " + force.ToString("F2") + " N";
         }
         
-        // Debug with "Space"
+        //Debug with "Space"
         if (Input.GetKeyDown(KeyCode.Space))
         {
             FireTrebuchet();
@@ -84,6 +86,7 @@ public class TrebuchetControllerUpdated : MonoBehaviour
             weight.isKinematic = false;
     
             // Start coroutine to release the pumpkin after a short delay
+            fireSound.Play();
             StartCoroutine(ReleasePumpkin());
         }
         else
