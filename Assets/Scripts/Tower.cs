@@ -29,7 +29,7 @@ public class Tower : MonoBehaviour
         isImpacted = true; // Mark as impacted
 
         // Play SFX and VFX at the explosion point
-        //PlayExplosionEffects(explosionPoint); --ROMITA enable when you have the assets
+        PlayExplosionEffects(explosionPoint); 
         
         
         // Trigger haptic feedback on both controllers
