@@ -22,6 +22,29 @@ public class Projectile : MonoBehaviour
         UpdateMass();
     }
 
+    void Update()
+    {
+        if (transform.position.y < -5)  // fell down from the scene
+        {
+            Debug.Log("FALLING");
+            if (massCategory == MassCategory.Heavy)
+            {
+                Debug.Log("HEAVY");
+                var teacher = FindFirstObjectByType<Teacher>();
+                if (teacher != null)
+                {
+                    Debug.Log("TEACHER FOUND");
+                    if (teacher.GetCurrentEvent() == 3)
+                    {
+                        teacher.TriggerEvent(3);
+                        Debug.Log("TEACHER TRIGGERED EVENT");
+                    }
+                }
+            }
+            Destroy(gameObject);
+        }
+    }
+
     public void SetMassCategory(MassCategory newMassCategory)
     {
         massCategory = newMassCategory;
