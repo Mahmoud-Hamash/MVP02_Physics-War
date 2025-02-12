@@ -6,6 +6,7 @@ public class PalisadeBehaviour : MonoBehaviour
 {
     [SerializeField] private int _health = 3;
     [SerializeField] private List<string> _ignorePostNames = new List<string>();
+    [SerializeField] private GameObject _scoreboard;
 
     private List<GameObject> _posts = new List<GameObject>();
     private Dictionary<string,int> _postHealth = new Dictionary<string, int>();
@@ -21,6 +22,11 @@ public class PalisadeBehaviour : MonoBehaviour
                 _postHealth.Add(child.name, _health);
             }
         }
+    }
+
+    public void EnableScoreboard()
+    {
+        _scoreboard.SetActive(true);
     }
 
     public void Damage()

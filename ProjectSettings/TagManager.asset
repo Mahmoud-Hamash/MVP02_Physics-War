@@ -11,14 +11,17 @@ TagManager:
   - LocoText
   - Projectile
   - Loadable
+  - First
+  - Enemy
+  - Palisade
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Trebuchet
   - Water
   - UI
-  - 
+  - Ballista
   - 
   - 
   - 

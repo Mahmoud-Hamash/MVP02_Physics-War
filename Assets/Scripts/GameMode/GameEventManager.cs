@@ -6,6 +6,8 @@ public enum GameEventType
 {
     PalisadeWrecked,
     SpartanDied,
+    SpartanHit,
+    TowerCollapsed
 }
 
 public class GameEventManager : MonoBehaviour

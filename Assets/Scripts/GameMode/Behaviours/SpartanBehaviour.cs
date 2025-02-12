@@ -10,10 +10,12 @@ public class SpartanBehaviour : MonoBehaviour
         Walk = 0,
         Charge = 1,
         Die = 2,
-        Attack = 3
+        Attack = 3,
+        Hit = 4
     }
 
     [SerializeField] private AudioClip _choppingSound;
+    [SerializeField] private AudioClip _hitSound;
     [SerializeField] private Animator _animator;
     [SerializeField] private Transform _avatar;
     [SerializeField] private float _speed = 1f;
@@ -26,6 +28,9 @@ public class SpartanBehaviour : MonoBehaviour
     private void Start()
     {
         _audioSource = GetComponent<AudioSource>();
+
+        GameEventManager.StartListening(GameEventType.PalisadeWrecked, OnPalisadeWrecked);
+        GameEventManager.StartListening(GameEventType.TowerCollapsed, OnTowerCollapsed);
     }
 
     private void Update()
@@ -82,6 +87,9 @@ public class SpartanBehaviour : MonoBehaviour
         if (collision.gameObject.CompareTag("Projectile"))
         {
             _animator.SetInteger("status", (int)Status.Die);
+            _audioSource.Stop();
+            _audioSource.PlayOneShot(_hitSound);
+            GameEventManager.TriggerEvent(GameEventType.SpartanHit, _column);
             Invoke(nameof(Die), 5f);
         }
         else if (collision.gameObject.CompareTag("Palisade"))
@@ -89,6 +97,18 @@ public class SpartanBehaviour : MonoBehaviour
             _animator.SetInteger("status", (int)Status.Attack);
             _palisade = collision.gameObject.GetComponent<PalisadeBehaviour>();
         }
+    }
+
+    private void OnPalisadeWrecked(System.Object obj)
+    {
+        _animator.SetInteger("status", (int)Status.Hit);
+        _audioSource.Stop();
+    }
+
+    private void OnTowerCollapsed(System.Object obj)
+    {
+        _animator.SetInteger("status", (int)Status.Die);
+        Invoke(nameof(Die), 5f);
     }
 
     public void SetColumn(int column)

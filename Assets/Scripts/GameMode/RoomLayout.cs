@@ -48,7 +48,7 @@ public class RoomLayout : MonoBehaviour
             wallEffect.transform.localRotation = Quaternion.identity;
         }
 
-        ApplyLayer(GetLargestFrontWall().gameObject, "Virtual");
+        // ApplyLayer(GetLargestFrontWall().gameObject, "Virtual");
     }
 
     private MRUKAnchor GetLargestFrontWall()

@@ -37,7 +37,7 @@ Shader "LiteParticleEffect/Effect Blended Premultiply"
 			float _UVScrollY;
 			float _UVCutScrollX;
 			float _UVCutScrollY;
-			sampler2D_float _CameraDepthTexture;
+			UNITY_DECLARE_DEPTH_TEXTURE(_CameraDepthTexture);
 			float _InvFade;
 
 			struct appdata
