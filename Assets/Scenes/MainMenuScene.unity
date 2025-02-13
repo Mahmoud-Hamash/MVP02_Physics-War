@@ -25009,6 +25009,11 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 674262748321933381, guid: f51f91d298859457cbd3fc8109bf12f6,
+        type: 3}
+      propertyPath: touchSound
+      value: 
+      objectReference: {fileID: 8300000, guid: cca459ee9b5f446cb81a8c4251108f99, type: 3}
     - target: {fileID: 1191430978373481754, guid: f51f91d298859457cbd3fc8109bf12f6,
         type: 3}
       propertyPath: m_text
