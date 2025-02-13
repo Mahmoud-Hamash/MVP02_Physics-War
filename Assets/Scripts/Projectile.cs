@@ -18,33 +18,22 @@ public class Projectile : MonoBehaviour
     [SerializeField] private Rigidbody rb;
     [SerializeField] private TextMeshProUGUI textMass;
     
+    private ParticleSystem _fallParticles;
+    private AudioSource _fallSound;
+    
+    
     // Start is called before the first frame update
     void Start()
     {
         UpdateMass();
+        var dirt = FindFirstObjectByType<DirtPS>().gameObject;
+        _fallParticles = dirt.GetComponent<ParticleSystem>();
+        _fallSound = dirt.GetComponent<AudioSource>();
     }
 
     void Update()
     {
-        if (gameObject.CompareTag("Projectile") && transform.position.y < 0) // pumpkin fell from scene
-        {
-            Fall();
-        }
-        // if (gameObject.CompareTag("Projectile") && transform.position.y < 0.09)  // pumpkin fell down from the scene
-        // {
-        //     if (massCategory == MassCategory.Heavy)
-        //     {
-        //         var teacher = FindFirstObjectByType<Teacher>();
-        //         if (teacher != null)
-        //         {
-        //             if (teacher.GetCurrentEvent() == 3)
-        //             {
-        //                 teacher.TriggerEvent(3);
-        //             }
-        //         }
-        //     }
-        //     Destroy(gameObject);
-        // }
+        if (gameObject.CompareTag("Projectile") && transform.position.y < 0) Fall();
     }
 
     public void SetMassCategory(MassCategory newMassCategory)
@@ -82,7 +71,7 @@ public class Projectile : MonoBehaviour
         if (gameObject.CompareTag("Projectile") && anchor != null && anchor.Label == MRUKAnchor.SceneLabels.FLOOR)
         {
             Fall();
-        }
+        } 
     }
 
     private void Fall()
@@ -98,7 +87,21 @@ public class Projectile : MonoBehaviour
                 }
             }
         }
+        gameObject.SetActive(false);
+        
+        if (_fallParticles != null)
+        {
+            _fallParticles.transform.position = transform.position;
+            _fallParticles.Stop();  // Ensure it stops first
+            _fallParticles.Clear();
+            _fallParticles.Play();
+        }
 
+        if (_fallSound != null)
+        {
+            _fallSound.Play();
+        }
+        
         Destroy(gameObject);
     }
 }
