@@ -23,7 +23,7 @@ public class ToggleButtonsSelection : MonoBehaviour
     public void OnSelectEntered(GameObject obj)
     {
         // Touch sound
-        audioSource.PlayOneShot(touchSound, SFXVolume);
+        //audioSource.PlayOneShot(touchSound, SFXVolume);
         SingleToogleButton buttonSelected = obj.GetComponent<SingleToogleButton>();
         selectedToogleButton = buttonSelected.optionType;
         HighlightButton(buttonSelected);
