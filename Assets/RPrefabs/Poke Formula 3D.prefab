@@ -1692,7 +1692,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 444
+  m_VersionIndex: 459
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1768,7 +1768,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0abde04cac21240159dc087b21918796, type: 2}
+  - {fileID: 2100000, guid: a3f352f698783454aa8d5c4606784e20, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1832,12 +1832,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a75c29c41b70d43e399dbfde7be2405f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultMaterial: {fileID: 2100000, guid: a3f352f698783454aa8d5c4606784e20, type: 2}
+  defaultMaterial: {fileID: 2100000, guid: 0e2909c180cc5f942b9c90b97f8aea5b, type: 2}
   selectedMaterial: {fileID: 2100000, guid: 0abde04cac21240159dc087b21918796, type: 2}
   uiCanvas: {fileID: 423793506900208372}
   uiText: {fileID: 7607790585605054073}
-  letterContent: Mass of the projectile [kg]
+  letterContent: Mass of projectile [kg]
   childLetter: {fileID: 8355449783510256655}
+  touchEffectPrefab: {fileID: 6304429622110188693, guid: 2b5b4586be420488bb01107a6bec21a0,
+    type: 3}
+  touchSound: {fileID: 8300000, guid: cca459ee9b5f446cb81a8c4251108f99, type: 3}
 --- !u!1 &577232159792439606
 GameObject:
   m_ObjectHideFlags: 0
@@ -3419,7 +3422,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2608
+  m_VersionIndex: 2623
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -3501,7 +3504,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0abde04cac21240159dc087b21918796, type: 2}
+  - {fileID: 2100000, guid: a3f352f698783454aa8d5c4606784e20, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3565,12 +3568,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a75c29c41b70d43e399dbfde7be2405f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultMaterial: {fileID: 2100000, guid: a3f352f698783454aa8d5c4606784e20, type: 2}
+  defaultMaterial: {fileID: 2100000, guid: 0e2909c180cc5f942b9c90b97f8aea5b, type: 2}
   selectedMaterial: {fileID: 2100000, guid: 0abde04cac21240159dc087b21918796, type: 2}
   uiCanvas: {fileID: 423793506900208372}
   uiText: {fileID: 7607790585605054073}
   letterContent: Range [m]
   childLetter: {fileID: 0}
+  touchEffectPrefab: {fileID: 6304429622110188693, guid: 2b5b4586be420488bb01107a6bec21a0,
+    type: 3}
+  touchSound: {fileID: 8300000, guid: cca459ee9b5f446cb81a8c4251108f99, type: 3}
 --- !u!1 &704647556817465516
 GameObject:
   m_ObjectHideFlags: 0
@@ -4122,7 +4128,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2661
+  m_VersionIndex: 2676
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -4175,7 +4181,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0abde04cac21240159dc087b21918796, type: 2}
+  - {fileID: 2100000, guid: a3f352f698783454aa8d5c4606784e20, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4552,7 +4558,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2661
+  m_VersionIndex: 2676
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -4605,7 +4611,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0abde04cac21240159dc087b21918796, type: 2}
+  - {fileID: 2100000, guid: a3f352f698783454aa8d5c4606784e20, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7210,7 +7216,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 68
+  m_VersionIndex: 83
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -7315,7 +7321,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0abde04cac21240159dc087b21918796, type: 2}
+  - {fileID: 2100000, guid: a3f352f698783454aa8d5c4606784e20, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8803,7 +8809,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 68
+  m_VersionIndex: 83
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -8879,7 +8885,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0abde04cac21240159dc087b21918796, type: 2}
+  - {fileID: 2100000, guid: a3f352f698783454aa8d5c4606784e20, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8943,12 +8949,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a75c29c41b70d43e399dbfde7be2405f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultMaterial: {fileID: 2100000, guid: a3f352f698783454aa8d5c4606784e20, type: 2}
+  defaultMaterial: {fileID: 2100000, guid: 0e2909c180cc5f942b9c90b97f8aea5b, type: 2}
   selectedMaterial: {fileID: 2100000, guid: 0abde04cac21240159dc087b21918796, type: 2}
   uiCanvas: {fileID: 423793506900208372}
   uiText: {fileID: 7607790585605054073}
-  letterContent: Height of the fixed counterweight drop [m]
+  letterContent: Height of fixed counterweight drop [m]
   childLetter: {fileID: 0}
+  touchEffectPrefab: {fileID: 6304429622110188693, guid: 2b5b4586be420488bb01107a6bec21a0,
+    type: 3}
+  touchSound: {fileID: 8300000, guid: cca459ee9b5f446cb81a8c4251108f99, type: 3}
 --- !u!1 &4593609089249435639
 GameObject:
   m_ObjectHideFlags: 0
@@ -9368,8 +9377,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 06e54e495b3d4384fab56b262fc4f592, type: 2}
+  m_sharedMaterial: {fileID: 1953888514076617510, guid: 06e54e495b3d4384fab56b262fc4f592,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10035,7 +10045,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2661
+  m_VersionIndex: 2676
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -10088,7 +10098,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0abde04cac21240159dc087b21918796, type: 2}
+  - {fileID: 2100000, guid: a3f352f698783454aa8d5c4606784e20, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11498,7 +11508,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 68
+  m_VersionIndex: 83
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -11574,7 +11584,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0abde04cac21240159dc087b21918796, type: 2}
+  - {fileID: 2100000, guid: a3f352f698783454aa8d5c4606784e20, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12579,7 +12589,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 68
+  m_VersionIndex: 83
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -12644,7 +12654,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0abde04cac21240159dc087b21918796, type: 2}
+  - {fileID: 2100000, guid: a3f352f698783454aa8d5c4606784e20, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12708,12 +12718,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a75c29c41b70d43e399dbfde7be2405f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultMaterial: {fileID: 2100000, guid: a3f352f698783454aa8d5c4606784e20, type: 2}
+  defaultMaterial: {fileID: 2100000, guid: 0e2909c180cc5f942b9c90b97f8aea5b, type: 2}
   selectedMaterial: {fileID: 2100000, guid: 0abde04cac21240159dc087b21918796, type: 2}
   uiCanvas: {fileID: 423793506900208372}
   uiText: {fileID: 7607790585605054073}
-  letterContent: Mass of the counterweight [kg]
+  letterContent: Mass of counterweight [kg]
   childLetter: {fileID: 2557287929302404116}
+  touchEffectPrefab: {fileID: 6304429622110188693, guid: 2b5b4586be420488bb01107a6bec21a0,
+    type: 3}
+  touchSound: {fileID: 8300000, guid: cca459ee9b5f446cb81a8c4251108f99, type: 3}
 --- !u!1 &7702389025809532962
 GameObject:
   m_ObjectHideFlags: 0
@@ -15384,7 +15397,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 68
+  m_VersionIndex: 83
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -15489,7 +15502,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0abde04cac21240159dc087b21918796, type: 2}
+  - {fileID: 2100000, guid: a3f352f698783454aa8d5c4606784e20, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
