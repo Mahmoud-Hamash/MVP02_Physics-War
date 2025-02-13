@@ -46,6 +46,15 @@ public class LetterInteraction : MonoBehaviour
                 uiText.text = letterContent; // Update the text content
             }
         }
+        
+        var teacher = FindFirstObjectByType<Teacher>();
+        if (teacher != null)
+        {
+            if (teacher.GetCurrentEvent() == 2)
+            {
+                teacher.TriggerEvent(teacher.GetCurrentEvent());
+            }
+        }
     }
 
     private void ResetAllLetters()

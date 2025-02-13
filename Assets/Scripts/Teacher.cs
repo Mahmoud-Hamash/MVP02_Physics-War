@@ -32,18 +32,15 @@ public class Teacher : MonoBehaviour
     private bool isSpeaking = false;  // To prevent multiple calls to Speak() while already speaking
 
     public GameObject arrowStep1;
-    //public GameObject FormulaStep2;
     public GameObject arrowStep2;
     public GameObject arrowStep3;
     public GameObject formula;
     public Banner banner;
     
-    //[Obsolete("Obsolete")]
     private void Start()
     {
         _animator = GetComponent<Animator>();
         _ttsSpeaker = GetComponentInChildren<TTSSpeaker>();
-        _animator.SetInteger("status", 1);
         
         if (_ttsSpeaker != null)
         {
@@ -53,30 +50,33 @@ public class Teacher : MonoBehaviour
         }
 
         // Optionally, you can start speaking the intro text here:
-        Speak("Welcome to this weapon tutorial! Get ready to learn some amazing physics. This medieval weapon used physics to smash fortresses. Ready to learn?");
+        Speak("Welcome to this medieval weapon tutorial! Get ready to learn some amazing physics. The trebuchet used physics to smash fortresses. Ready to learn?");
     }
 
     private void OnSpeechStart(TTSSpeaker arg0, TTSClipData arg1)
     {
         Debug.Log($"Phrase started: {currentEvent}");
+        _animator.SetInteger("status", 0);
     }
+
 
     private void OnSpeechFinished(TTSSpeaker arg0, TTSClipData arg1)
     {
         Debug.Log($"Phrase finished: {currentEvent}");
+        _animator.SetInteger("status", 2);  // set idle
         // currentEvent++;
 
         switch (currentEvent)
         {
             case 1: StartCoroutine(DelayedTrigger(1)); break;
-            case 2: StartCoroutine(DelayedTrigger(2)); break;
+            //case 2: StartCoroutine(DelayedTrigger(2)); break;
         }
     }
     
     // Ensure some delay between phrases
     private IEnumerator DelayedTrigger(int nextEventId)
     {
-        yield return new WaitForSeconds(1f);  // Wait for 3 seconds
+        yield return new WaitForSeconds(1.5f);  // Wait for _ seconds
         TriggerEvent(nextEventId);
     }
 
@@ -126,11 +126,12 @@ public class Teacher : MonoBehaviour
             else if (eventId == 4)  // hide arrow3
             {
                 arrowStep3.SetActive(false);
+                banner.ShowBanner(0);
             }
             else if (eventId == 5)  // hide formula, show banner
             {
                 formula.SetActive(false);
-                banner.ShowBanner();
+                banner.ShowBanner(1);
             }
             // HARDCODED END
 

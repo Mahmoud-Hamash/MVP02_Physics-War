@@ -1,9 +1,11 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class Banner : MonoBehaviour
 {
     [SerializeField] private CanvasGroup canvasGroup;
+    [SerializeField] private TextMeshProUGUI bannerText;
     [SerializeField] private float fadeDuration = 3f; // Time to fade out
     [SerializeField] private float displayTime = 3f;  // Time before fade starts
     [SerializeField] private AudioSource bannerSound;
@@ -13,8 +15,13 @@ public class Banner : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void ShowBanner()
+    public void ShowBanner(int textId)
     {
+        switch (textId)
+        {
+            case 0: bannerText.text = "Destroyed Your 1st Tower!"; break;
+            case 1: bannerText.text = "Weapon Unlocked: Trebuchet!"; break;
+        }
         gameObject.SetActive(true);
         canvasGroup.alpha = 1f; // Ensure it's fully visible
         bannerSound.Play();
