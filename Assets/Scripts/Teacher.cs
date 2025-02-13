@@ -65,11 +65,10 @@ public class Teacher : MonoBehaviour
         Debug.Log($"Phrase finished: {currentEvent}");
         _animator.SetInteger("status", 2);  // set idle
         // currentEvent++;
-
+        
         switch (currentEvent)
         {
             case 1: StartCoroutine(DelayedTrigger(1)); break;
-            //case 2: StartCoroutine(DelayedTrigger(2)); break;
         }
     }
     

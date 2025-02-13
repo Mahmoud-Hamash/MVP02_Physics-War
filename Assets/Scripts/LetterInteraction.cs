@@ -9,9 +9,12 @@ public class LetterInteraction : MonoBehaviour
     public TextMeshProUGUI uiText; // TextMeshPro component for displaying content
     public string letterContent; // Content specific to this letter
     public GameObject childLetter;
+    public GameObject touchEffectPrefab; // Particle effect prefab
+    public AudioClip touchSound; 
 
     private Renderer _renderer;
     private Renderer _childRenderer;
+    private AudioSource audioSource;
 
     void Start()
     {
@@ -31,11 +34,16 @@ public class LetterInteraction : MonoBehaviour
         {
             uiCanvas.SetActive(false);
         }
+        // Add an AudioSource component dynamically if not already present
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.playOnAwake = false;
+        audioSource.spatialBlend = 1f; // Make the sound 3D
     }
 
     public void OnSelectEntered()
     {
         HighlightLetter();
+        PlayTouchEffects();
 
         // Display the UI Canvas and update its content
         if (uiCanvas != null)
@@ -87,5 +95,20 @@ public class LetterInteraction : MonoBehaviour
         _renderer.material = selectedMaterial;
         _childRenderer.material = selectedMaterial;
         
+    }
+    
+    private void PlayTouchEffects()
+    {
+        // Instantiate particle effect
+        if (touchEffectPrefab != null)
+        {
+            Instantiate(touchEffectPrefab, transform.position, Quaternion.identity); // remember to configure the object to destroy after the effect
+        }
+
+        // Play sound effect
+        if (touchSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(touchSound);
+        }
     }
 }
