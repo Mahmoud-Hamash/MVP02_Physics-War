@@ -1692,7 +1692,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 408
+  m_VersionIndex: 414
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1838,6 +1838,9 @@ MonoBehaviour:
   uiText: {fileID: 7607790585605054073}
   letterContent: Projectile mass (kg)
   childLetter: {fileID: 8355449783510256655}
+  touchEffectPrefab: {fileID: 6304429622110188693, guid: 2b5b4586be420488bb01107a6bec21a0,
+    type: 3}
+  touchSound: {fileID: 8300000, guid: cca459ee9b5f446cb81a8c4251108f99, type: 3}
 --- !u!1 &577232159792439606
 GameObject:
   m_ObjectHideFlags: 0
@@ -3419,7 +3422,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2572
+  m_VersionIndex: 2578
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -3571,6 +3574,9 @@ MonoBehaviour:
   uiText: {fileID: 7607790585605054073}
   letterContent: Range (Meters)
   childLetter: {fileID: 0}
+  touchEffectPrefab: {fileID: 6304429622110188693, guid: 2b5b4586be420488bb01107a6bec21a0,
+    type: 3}
+  touchSound: {fileID: 8300000, guid: cca459ee9b5f446cb81a8c4251108f99, type: 3}
 --- !u!1 &704647556817465516
 GameObject:
   m_ObjectHideFlags: 0
@@ -4122,7 +4128,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2625
+  m_VersionIndex: 2631
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -4552,7 +4558,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2625
+  m_VersionIndex: 2631
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -7210,7 +7216,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 32
+  m_VersionIndex: 38
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -8803,7 +8809,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 32
+  m_VersionIndex: 38
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -8949,6 +8955,9 @@ MonoBehaviour:
   uiText: {fileID: 7607790585605054073}
   letterContent: fixed counterweight drop height (meters)
   childLetter: {fileID: 0}
+  touchEffectPrefab: {fileID: 6304429622110188693, guid: 2b5b4586be420488bb01107a6bec21a0,
+    type: 3}
+  touchSound: {fileID: 8300000, guid: cca459ee9b5f446cb81a8c4251108f99, type: 3}
 --- !u!1 &4593609089249435639
 GameObject:
   m_ObjectHideFlags: 0
@@ -10035,7 +10044,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2625
+  m_VersionIndex: 2631
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -11498,7 +11507,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 32
+  m_VersionIndex: 38
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -12579,7 +12588,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 32
+  m_VersionIndex: 38
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -12714,6 +12723,9 @@ MonoBehaviour:
   uiText: {fileID: 7607790585605054073}
   letterContent: Counterweight mass (kg)
   childLetter: {fileID: 2557287929302404116}
+  touchEffectPrefab: {fileID: 6304429622110188693, guid: 2b5b4586be420488bb01107a6bec21a0,
+    type: 3}
+  touchSound: {fileID: 8300000, guid: cca459ee9b5f446cb81a8c4251108f99, type: 3}
 --- !u!1 &7702389025809532962
 GameObject:
   m_ObjectHideFlags: 0
@@ -15384,7 +15396,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 32
+  m_VersionIndex: 38
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
