@@ -2540,7 +2540,7 @@ Transform:
   m_GameObject: {fileID: 1386702966319899077}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -7.609}
+  m_LocalPosition: {x: -2.158, y: 1.0476, z: -7.69}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2665,7 +2665,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitsToDestroy: 3
-  impactEffectPrefab: {fileID: 7130411724630890565, guid: 02981893c51d841a49ba46dc91cfd302,
+  impactEffectPrefab: {fileID: 6295591714625531937, guid: 31395a5e5d46e42e986faea26151024b,
     type: 3}
   destructionDelay: 5
   explosionForce: 5
@@ -2686,14 +2686,14 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -478392440689130932, guid: ea19b41214872e94c989835fb056d812,
     type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 190
+  Priority: 128
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

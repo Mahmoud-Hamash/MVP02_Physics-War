@@ -47,7 +47,7 @@ public class FloorSpawner : MonoBehaviour
         rotatedPosition = Quaternion.Euler(0, 180, 0) * rotatedPosition;
         floor.transform.forward = rotatedPosition;
 
-        CreateTrees(floor);
+        // CreateTrees(floor);
 
         return floor;
     }
