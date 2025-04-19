@@ -55,13 +55,13 @@ public class Tower : MonoBehaviour
         Invoke(nameof(DestroyTower), destructionDelay);
         
         var teacher = GameObject.FindFirstObjectByType<Teacher>();
-        // if (teacher != null)
-        // {
-        //     if (teacher.GetCurrentEvent() == 4 || teacher.GetCurrentEvent() == 5)
-        //     {
-        //         teacher.TriggerEvent(teacher.GetCurrentEvent());
-        //     }
-        // }
+        if (teacher != null)
+        {
+            if (teacher.GetCurrentEvent() == 4 || teacher.GetCurrentEvent() == 5)
+            {
+                teacher.TriggerEvent(teacher.GetCurrentEvent());
+            }
+        }
     }
 
     private void PlayExplosionEffects(Vector3 explosionPoint)
