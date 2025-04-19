@@ -12,8 +12,8 @@ public class WoodPlankMid : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        // if (collision.gameObject.CompareTag("Loadable"))
-        // {
+        if (collision.gameObject.CompareTag("Projectile"))
+        {
             int projectileID = collision.gameObject.GetInstanceID(); // Get unique instance ID of the projectile
 
             if (parentTower != null)
@@ -23,6 +23,6 @@ public class WoodPlankMid : MonoBehaviour
             }
 
             Destroy(collision.gameObject); // Destroy projectile after impact
-        // }
+        }
     }
 }

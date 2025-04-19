@@ -8,6 +8,7 @@ public class Lever : MonoBehaviour
     [SerializeField] private TrebuchetControllerUpdated trebuchet;
     [SerializeField] private GameObject trebuchetPrefab;
     [SerializeField] private float rotationSpeed = 1.0f;
+    [SerializeField] private AudioSource leverSound;
 
     private bool _isOff = true;
     private bool _isMoving = false;
@@ -25,6 +26,7 @@ public class Lever : MonoBehaviour
             if (_isOff && trebuchet.IsLoaded())  
             {
                 _isOff = false;  // Toggle before rotation starts
+                leverSound.Play();
                 StartCoroutine(RotateLever(45f));
                 trebuchet.FireTrebuchet();
             }
@@ -35,6 +37,7 @@ public class Lever : MonoBehaviour
             else 
             {
                 _isOff = true;  // Toggle before rotation starts
+                leverSound.Play();
                 StartCoroutine(RotateLever(-45f));
                 ResetTrebuchet();
             }

@@ -2665,7 +2665,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitsToDestroy: 3
-  impactEffectPrefab: {fileID: 6295591714625531937, guid: 31395a5e5d46e42e986faea26151024b,
+  impactEffectPrefab: {fileID: 7130411724630890565, guid: 02981893c51d841a49ba46dc91cfd302,
     type: 3}
   destructionDelay: 5
   explosionForce: 5
@@ -2683,10 +2683,9 @@ AudioSource:
   m_GameObject: {fileID: 1386702966319899077}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -478392440689130932, guid: ea19b41214872e94c989835fb056d812,
-    type: 2}
+  OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -2698,7 +2697,7 @@ AudioSource:
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
-  rolloffMode: 1
+  rolloffMode: 0
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
