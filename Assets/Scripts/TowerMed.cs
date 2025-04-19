@@ -27,9 +27,13 @@ public class TowerMed : MonoBehaviour
         // Add an AudioSource component dynamically if not already present
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.playOnAwake = false;
-        audioSource.spatialBlend = 1f; // Make the sound 3D
+        // audioSource.spatialBlend = 1f; // Make the sound 3D
     }
 
+    public bool IsDestroyed()
+    {
+        return isDestroyed;
+    }
     public void RegisterHit(Vector3 impactPoint, Transform impactedPlank, int projectileID)
     {
         if (isDestroyed) return; // If already destroyed, ignore further hits
@@ -43,7 +47,8 @@ public class TowerMed : MonoBehaviour
         Debug.Log($"Impact registered! Current hits: {currentHits + 1}/{hitsToDestroy}");
         Debug.Log(impactSound);
         Debug.Log(audioSource);
-        audioSource.PlayOneShot(impactSound, explosionVolume); 
+        // audioSource.PlayOneShot(impactSound, explosionVolume); 
+        audioSource.PlayOneShot(impactSound); 
 
         currentHits++; // Increment hit count
 
@@ -117,7 +122,8 @@ public class TowerMed : MonoBehaviour
         // Play sound effect
         if (explosionSound != null && audioSource != null)
         {
-            audioSource.PlayOneShot(explosionSound, explosionVolume);
+            audioSource.PlayOneShot(explosionSound);
+            // audioSource.PlayOneShot(explosionSound, explosionVolume);
         }
     }
 

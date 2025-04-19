@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class TowerBehaviour : MonoBehaviour
 {
-    private Tower _tower;
+    private TowerMed _tower;
     private bool _notified = false;
     private void Start()
     {
-        _tower = GetComponent<Tower>();
+        _tower = GetComponent<TowerMed>();
     }
 
     private void Update()
     {
-        if (_tower.isImpacted && !_notified)
+        if (_tower.IsDestroyed() && !_notified)
         {
             _notified = true;
             GameEventManager.TriggerEvent(GameEventType.TowerCollapsed);
